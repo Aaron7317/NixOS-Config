@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, user, neovim-config, ... }:
 
 {
     imports = [
@@ -45,6 +45,13 @@
             ccls
         ];
 
+
+
         stateVersion = "22.11";
+    };
+
+    xdg.configFile.nvim = {
+        source = neovim-config;
+        recursive = true;
     };
 }
