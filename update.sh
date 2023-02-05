@@ -2,7 +2,7 @@
 
 HERE="$(dirname "$(readlink -f "${0}")")"
 
-printf "Please select folder:\n"
+printf "Please select target:\n"
 select d in $HERE/hosts/*/; do test -n "$d" && break; echo ">>> Invalid Selection"; done
 TARGET="$(basename $d)"
 
