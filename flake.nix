@@ -21,9 +21,15 @@
             url = github:Aaron7317/nvim;
             flake = false;
         };
+
+        # Alacritty Configuration
+        alacritty-config = {
+            url = github:Aaron7317/alacritty;
+            flake = false;
+        };
     };
 
-    outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, neovim-config, ... }:
+    outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, neovim-config, alacritty-config, ... }:
         let
             user = "aaron";
             location = "$HOME/.flake";
@@ -31,7 +37,7 @@
             nixosConfigurations = (
                 import ./hosts {
                     inherit (nixpkgs) lib;
-                    inherit inputs nixpkgs home-manager nixos-hardware neovim-config user location;
+                    inherit inputs nixpkgs home-manager nixos-hardware neovim-config alacritty-config user location;
                 }
             );
         };

@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "alacritty-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1675558356,
+        "narHash": "sha256-XvNW1ba14ynGC5vif0mwQvCZ4VrEwHyrhn1v9TnDxQE=",
+        "owner": "Aaron7317",
+        "repo": "alacritty",
+        "rev": "fdf9ef38553078252bb0a6e280f5627fbb358499",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aaron7317",
+        "repo": "alacritty",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -71,6 +87,7 @@
     },
     "root": {
       "inputs": {
+        "alacritty-config": "alacritty-config",
         "home-manager": "home-manager",
         "neovim-config": "neovim-config",
         "nixos-hardware": "nixos-hardware",

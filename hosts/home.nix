@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, neovim-config, ... }:
+{ config, lib, pkgs, user, neovim-config, alacritty-config, ... }:
 
 {
     imports = [
@@ -52,6 +52,11 @@
 
     xdg.configFile.nvim = {
         source = neovim-config;
+        recursive = true;
+    };
+
+    xdg.configFile.alacritty = {
+        source = alacritty-config;
         recursive = true;
     };
 }
