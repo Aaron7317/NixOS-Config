@@ -1,12 +1,14 @@
 { config, lib, pkgs, inputs, user, location, ... }:
 
 {
-    imports = [];
+    imports = [
+        ../modules/qtile
+    ];
 
     # Main user
     users.users.${user} = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "kvm" "libvirtd" ];
+        extraGroups = [ "wheel" "kvm" "libvirtd" "input"];
     };
 
     # Set your time zone.
@@ -40,11 +42,13 @@
     services.xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment
-    services.xserver.displayManager.sddm.enable = true;
+    #services.xserver.displayManager.sddm.enable = true;
     services.xserver.desktopManager.plasma5.enable = true;
 
+    #services.xserver.displayManager.lightdm.enable = true;
+
     # Enable Qtile (Possibly move to modules)
-    services.xserver.windowManager.qtile.enable = true;
+    #services.xserver.windowManager.qtile.enable = true;
 
     # Configure keymap in X11
     services.xserver = {
@@ -119,7 +123,7 @@
         kernelModules = [ "kvm-intel" ];
     };
 
-    programs.dconf.enable = true;
+    #programs.dconf.enable = true;
 
     # Allow unfree software
     nixpkgs.config.allowUnfree = true;

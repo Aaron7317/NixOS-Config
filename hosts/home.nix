@@ -4,11 +4,15 @@
     imports = [
         ../modules/neovim
         ../modules/alacritty
+        #../modules/qtile
     ];
+
 
     programs = {
         # Let Home Manager install and manage itself.
-        home-manager.enable = true;
+        home-manager = {
+            enable = true;
+        };
     };
 
     # Allow installation of nonfree software
@@ -24,11 +28,15 @@
             thunderbird
             virt-manager
             qemu
+            unzip
+            zip
+            htop
 
             # Gaming
             steam
             discord
             lutris
+            minetest
 
             xournalpp
 
@@ -39,10 +47,6 @@
             gnumake
             git
 
-            # LSP
-            rnix-lsp
-            sumneko-lua-language-server
-            ccls
         ];
 
 
