@@ -27,9 +27,15 @@
             url = github:Aaron7317/alacritty;
             flake = false;
         };
+
+        # Qtile Configuration
+        qtile-config = {
+            url = github:Aaron7317/qtile;
+            flake = false;
+        };
     };
 
-    outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, neovim-config, alacritty-config, ... }:
+    outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, neovim-config, alacritty-config, qtile-config, ... }:
         let
             user = "aaron";
             location = "$HOME/.flake";
@@ -37,7 +43,7 @@
             nixosConfigurations = (
                 import ./hosts {
                     inherit (nixpkgs) lib;
-                    inherit inputs nixpkgs home-manager nixos-hardware neovim-config alacritty-config user location;
+                    inherit inputs nixpkgs home-manager nixos-hardware neovim-config alacritty-config qtile-config user location;
                 }
             );
         };

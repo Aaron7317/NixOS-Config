@@ -45,5 +45,6 @@
         alacritty
         htop
         brightnessctl
+        rofi
     ];
 }

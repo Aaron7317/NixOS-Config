@@ -1,7 +1,7 @@
 
 
 
-{ lib, inputs, nixpkgs, home-manager, neovim-config, alacritty-config, nixos-hardware, user, location, ... }:
+{ lib, inputs, nixpkgs, home-manager, neovim-config, alacritty-config, qtile-config, nixos-hardware, user, location, ... }:
 
 let
     system = "x86_64-linux";
@@ -32,7 +32,7 @@ in
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
-                    inherit user neovim-config alacritty-config;
+                    inherit user neovim-config alacritty-config qtile-config;
                     host = {
                         hostName = "aaron";
                     };

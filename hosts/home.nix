@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, neovim-config, alacritty-config, ... }:
+{ config, lib, pkgs, user, neovim-config, alacritty-config, qtile-config, ... }:
 
 {
     imports = [
@@ -61,6 +61,11 @@
 
     xdg.configFile.alacritty = {
         source = alacritty-config;
+        recursive = true;
+    };
+
+    xdg.configFile.qtile = {
+        source = qtile-config;
         recursive = true;
     };
 }
