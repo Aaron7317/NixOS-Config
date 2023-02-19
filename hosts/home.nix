@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, neovim-config, alacritty-config, qtile-config, ... }:
+{ config, lib, pkgs, user, dotfiles, ... }:
 
 {
     imports = [
@@ -31,14 +31,17 @@
             unzip
             zip
             htop
+            gimp
 
             # Gaming
             steam
             discord
             lutris
             minetest
+            minetestserver
 
             xournalpp
+            texlive.combined.scheme-full
 
             # Programming
             gcc
@@ -55,17 +58,22 @@
     };
 
     xdg.configFile.nvim = {
-        source = neovim-config;
+        source = "${dotfiles}/.config/nvim";
         recursive = true;
     };
 
     xdg.configFile.alacritty = {
-        source = alacritty-config;
+        source = "${dotfiles}/.config/alacritty";
         recursive = true;
     };
 
     xdg.configFile.qtile = {
-        source = qtile-config;
+        source = "${dotfiles}/.config/qtile";
+        recursive = true;
+    };
+
+    xdg.configFile.conky = {
+        source = "${dotfiles}/.config/conky";
         recursive = true;
     };
 }

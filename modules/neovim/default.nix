@@ -14,7 +14,7 @@
 
                 # LSP
                 rnix-lsp
-                sumneko-lua-language-server
+                lua-language-server
                 ccls
                 python311Packages.python-lsp-server
 	        ];

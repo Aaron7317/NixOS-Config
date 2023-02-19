@@ -3,6 +3,8 @@
     services = {
         xserver = {
             enable = true;
+
+            videoDrivers = [ "modesetting" ];
             
             layout = "us";
             xkbVariant = "";
@@ -13,32 +15,38 @@
                 };
             };
 
-            displayManager = {
+            displayManager = {                          # Display Manager
                 lightdm = {
-                    enable = true;
+                    enable = true;                          # Wallpaper and GTK theme
                     background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
                     greeters = {
                         gtk = {
                             theme = {
-                                name = "Nord";
+                                name = "nordic";
                                 package = pkgs.nordic;
                             };
                             cursorTheme = {
-                                name = "Nord Cursor";
+                                name = "nordic";
                                 package = pkgs.nordic;
-                                size = 20;
+                                size = 16;
                             };
                         };
                     };
                 };
                 defaultSession = "none+qtile";
             };
+
         };
 
-        picom.enable = true;
+        picom = {
+            enable = true;
+            fade = true;
+            fadeDelta = 4;
+            vSync = true;
+        };
     };
 
-    programs.dconf.enable = true;
+#programs.dconf.enable = true;
 
     environment.systemPackages = with pkgs; [
         feh
@@ -46,5 +54,6 @@
         htop
         brightnessctl
         rofi
+        conky
     ];
 }

@@ -16,26 +16,14 @@
             url = "github:NixOS/nixos-hardware/master";
         };
 
-        # Neovim Configuration 
-        neovim-config = {
-            url = github:Aaron7317/nvim;
-            flake = false;
-        };
-
-        # Alacritty Configuration
-        alacritty-config = {
-            url = github:Aaron7317/alacritty;
-            flake = false;
-        };
-
-        # Qtile Configuration
-        qtile-config = {
-            url = github:Aaron7317/qtile;
+        # Configuration Files (Yes I know I need to find an alternative way of doing this)
+        dotfiles = {
+            url = github:Aaron7317/dotfiles;
             flake = false;
         };
     };
 
-    outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, neovim-config, alacritty-config, qtile-config, ... }:
+    outputs = inputs @ { self, nixpkgs, home-manager, nixos-hardware, dotfiles, ... }:
         let
             user = "aaron";
             location = "$HOME/.flake";
@@ -43,7 +31,7 @@
             nixosConfigurations = (
                 import ./hosts {
                     inherit (nixpkgs) lib;
-                    inherit inputs nixpkgs home-manager nixos-hardware neovim-config alacritty-config qtile-config user location;
+                    inherit inputs nixpkgs home-manager nixos-hardware dotfiles user location;
                 }
             );
         };
