@@ -35,8 +35,14 @@
         LC_TIME = "en_US.UTF-8";
     };
 
-    # Enable 32 bit application support
-    hardware.opengl.driSupport32Bit = true;
+    hardware = {
+            opengl = {
+                enable = true;
+
+                # Enable 32 bit application support
+                driSupport32Bit = true;
+            };
+    };
 
     # Enable the X11 windowing system.
     services.xserver.enable = true;

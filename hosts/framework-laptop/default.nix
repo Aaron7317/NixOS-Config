@@ -20,4 +20,8 @@
             };
         };
     };
+
+    hardware.opengl.extraPackages = [
+        pkgs.mesa.drivers
+    ];
 }
