@@ -31,7 +31,11 @@
             unzip
             zip
             htop
+
+            # Art
             gimp
+            aseprite
+            godot
 
             # Gaming
             steam
