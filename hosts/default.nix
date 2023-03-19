@@ -43,4 +43,32 @@ in
             }
         ];
     };
+    main-pc = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+            inherit inputs user location;
+            host = {
+                hostName = "aaron";
+            };
+        };
+        modules = [
+            ./main-pc
+            ./configuration.nix 
+            
+            home-manager.nixosModules.home-manager {
+                home-manager.backupFileExtension = ".home-manager-backup";
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = {
+                    inherit user dotfiles;
+                    host = {
+                        hostName = "aaron";
+                    };
+                };
+                home-manager.users.${user} = {
+                    imports = [(import ./home.nix)] ++ [(import ./main-pc/home.nix)];
+                };
+            }
+        ];
+    };
 }

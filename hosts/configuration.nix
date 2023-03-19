@@ -2,7 +2,7 @@
 
 {
     imports = [
-        ../modules/qtile
+        #../modules/qtile
     ];
 
     # Main user
@@ -10,10 +10,6 @@
         isNormalUser = true;
         extraGroups = [ "wheel" "kvm" "libvirtd" "input"];
     };
-
-    # Set your time zone.
-    #time.timeZone = "America/Los_Angeles";
-    time.timeZone = "America/Denver";
 
     networking = {
         hostName = "aaron";
@@ -35,26 +31,12 @@
         LC_TIME = "en_US.UTF-8";
     };
 
-    hardware = {
-            opengl = {
-                enable = true;
-
-                # Enable 32 bit application support
-                driSupport32Bit = true;
-            };
-    };
-
     # Enable the X11 windowing system.
     services.xserver.enable = true;
 
     # Enable the KDE Plasma Desktop Environment
     #services.xserver.displayManager.sddm.enable = true;
     services.xserver.desktopManager.plasma5.enable = true;
-
-    #services.xserver.displayManager.lightdm.enable = true;
-
-    # Enable Qtile (Possibly move to modules)
-    #services.xserver.windowManager.qtile.enable = true;
 
     # Configure keymap in X11
     services.xserver = {
