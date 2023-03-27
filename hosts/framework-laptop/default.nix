@@ -28,11 +28,21 @@
                 # Enable 32 bit application support
                 driSupport32Bit = true;
 
-		extraPackages = [
-			pkgs.mesa.drivers
-		];
+		        extraPackages = [
+                    #pkgs.mesa.drivers
+		        ];
+		        extraPackages32 = [
+                    #pkgs.pkgsi686Linux.mesa.drivers
+		        ];
             };
     };
 
-    time.timeZone = "America/Los_Angeles";
+
+    # Virtualisation Config
+    virtualisation.libvirtd.enable = true;
+    boot = {
+        kernelModules = [ "kvm-intel" ];
+    };
+
+    time.timeZone = "America/Denver";
 }

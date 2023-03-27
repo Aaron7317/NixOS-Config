@@ -2,7 +2,7 @@
 
 {
     imports = [
-        #../modules/qtile
+        ../modules/qtile
     ];
 
     # Main user
@@ -104,14 +104,6 @@
             keep-derivations      = true
         '';
     };
-
-    # Virtualisation Config
-    virtualisation.libvirtd.enable = true;
-    boot = {
-        kernelModules = [ "kvm-intel" ];
-    };
-
-    #programs.dconf.enable = true;
 
     # Allow unfree software
     nixpkgs.config.allowUnfree = true;
