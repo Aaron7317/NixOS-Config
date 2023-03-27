@@ -80,4 +80,9 @@
         source = "${dotfiles}/.config/conky";
         recursive = true;
     };
+
+    xdg.configFile.rofi = {
+        source = "${dotfiles}/.config/rofi";
+        recursive = true;
+    };
 }
