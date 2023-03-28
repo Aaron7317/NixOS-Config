@@ -28,7 +28,7 @@ in
             nixos-hardware.nixosModules.framework
             
             home-manager.nixosModules.home-manager {
-                home-manager.backupFileExtension = ".home-manager-backup";
+                #home-manager.backupFileExtension = ".home-manager-backup";
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
