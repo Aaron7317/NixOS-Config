@@ -1,14 +1,23 @@
 
 
 
-{ lib, inputs, nixpkgs, home-manager, dotfiles, nixos-hardware, user, location, ... }:
+{ lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, dotfiles, nixos-hardware, user, location, ... }:
 
 let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
         inherit system;
-        config.allowUnfree = true;
+        config = {
+            allowUnfree = true;
+        };
+    };
+
+    unstable = import nixpkgs-unstable {
+        inherit system;
+        config = {
+            allowUnfree = true;
+        };
     };
 
     lib = nixpkgs.lib;
@@ -46,7 +55,7 @@ in
     main-pc = lib.nixosSystem {
         inherit system;
         specialArgs = {
-            inherit inputs user location;
+            inherit inputs pkgs unstable user location;
             host = {
                 hostName = "aaron";
             };

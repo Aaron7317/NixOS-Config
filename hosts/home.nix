@@ -16,7 +16,8 @@
     };
 
     # Allow installation of nonfree software
-    nixpkgs.config.allowUnfree = true;
+    #nixpkgs.config.allowUnfree = true;
+    #nixpkgs.config.segger-jlink.acceptLicense = true;
 
     home = {
         username = "${user}";
@@ -31,11 +32,14 @@
             unzip
             zip
             htop
+            keepassxc
+            betaflight-configurator
 
             # Art
             gimp
             aseprite
             godot
+            prusa-slicer
 
             # Gaming
             steam
@@ -43,6 +47,7 @@
             lutris
             minetest
             minetestserver
+            #r2modman # only in nixos-unstable
 
             xournalpp
             texlive.combined.scheme-full

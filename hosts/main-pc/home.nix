@@ -5,8 +5,7 @@
 {
     home = {
         # Main PC specific packages
-        #packages = with pkgs; [
-            
-        #];
+        packages = with pkgs; [
+        ];
     };
 }

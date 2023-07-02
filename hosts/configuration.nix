@@ -94,9 +94,9 @@
         gc = {
             automatic = true;
             dates = "weekly";
-            options = "--delete-older-than 2d";
+            options = "--delete-older-than 4d";
         };
-        package = pkgs.nixVersions.unstable;
+        #package = pkgs.nixVersions.unstable;
         registry.nixpkgs.flake = inputs.nixpkgs;
         extraOptions = ''
             experimental-features = nix-command flakes
@@ -106,10 +106,15 @@
     };
 
     # Allow unfree software
-    nixpkgs.config.allowUnfree = true;
+    #nixpkgs.config.allowUnfree = true;
+    #nixpkgs.config.segger-jlink.acceptLicense = true;
 
     # System info
     system = {
+        autoUpgrade = {                         # Allow auto update (not useful in flakes)
+        enable = true;
+            channel = "https://nixos.org/channels/nixos-unstable";
+        };
         # This value determines the NixOS release from which the default
         # settings for stateful data, like file locations and database versions
         # on your system were taken. It‘s perfectly fine and recommended to leave
