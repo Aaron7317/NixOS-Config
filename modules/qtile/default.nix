@@ -15,23 +15,29 @@
                 };
             };
 
-            displayManager = {                          # Display Manager
-                lightdm = {
-                    enable = true;                          # Wallpaper and GTK theme
-                    background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
-                    greeters = {
-                        gtk = {
-                            theme = {
-                                name = "nordic";
-                                package = pkgs.nordic;
-                            };
-                            cursorTheme = {
-                                name = "nordic";
-                                package = pkgs.nordic;
-                                size = 16;
-                            };
-                        };
-                    };
+            #displayManager = {                          # Display Manager
+#               lightdm = {
+#                   enable = true;                          # Wallpaper and GTK theme
+#                   background = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
+#                   greeters = {
+#                       gtk = {
+#                           theme = {
+#                               name = "nordic";
+#                               package = pkgs.nordic;
+#                           };
+#                           cursorTheme = {
+#                               name = "nordic";
+#                               package = pkgs.nordic;
+#                               size = 16;
+#                           };
+#                       };
+#                   };
+#               };
+#               defaultSession = "none+qtile";
+#           };
+            displayManager = {
+                sddm = {
+                    enable = true;
                 };
                 defaultSession = "none+qtile";
             };
@@ -55,5 +61,6 @@
         brightnessctl
         rofi
         conky
+        betterlockscreen
     ];
 }

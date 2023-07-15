@@ -8,6 +8,8 @@
     
         # Home Manager
         home-manager = {
+            #url = "github:nix-community/home-manager";
+            #inputs.nixpkgs.follows = "nixpkgs-unstable";
             url = "github:nix-community/home-manager/release-23.05";
             inputs.nixpkgs.follows = "nixpkgs";
         };

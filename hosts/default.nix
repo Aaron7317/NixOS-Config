@@ -1,6 +1,3 @@
-
-
-
 { lib, inputs, nixpkgs, nixpkgs-unstable, home-manager, dotfiles, nixos-hardware, user, location, ... }:
 
 let
@@ -41,7 +38,7 @@ in
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
-                    inherit user dotfiles;
+                    inherit unstable user dotfiles;
                     host = {
                         hostName = "aaron";
                     };
@@ -69,7 +66,7 @@ in
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = {
-                    inherit user dotfiles;
+                    inherit unstable user dotfiles;
                     host = {
                         hostName = "aaron";
                     };

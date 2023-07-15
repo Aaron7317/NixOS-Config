@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, dotfiles, ... }:
+{ config, lib, pkgs, unstable, user, dotfiles, ... }:
 
 {
     imports = [
@@ -15,9 +15,6 @@
         };
     };
 
-    # Allow installation of nonfree software
-    #nixpkgs.config.allowUnfree = true;
-    #nixpkgs.config.segger-jlink.acceptLicense = true;
 
     home = {
         username = "${user}";
@@ -40,6 +37,7 @@
             aseprite
             godot
             prusa-slicer
+            blender
 
             # Gaming
             steam
@@ -47,7 +45,7 @@
             lutris
             minetest
             minetestserver
-            #r2modman # only in nixos-unstable
+            unstable.r2modman # only in nixos-unstable
 
             xournalpp
             texlive.combined.scheme-full
